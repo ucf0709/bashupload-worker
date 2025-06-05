@@ -1,0 +1,15 @@
+name: Reupload File to Bashupload
+
+on:
+  workflow_dispatch:  # manual trigger
+
+jobs:
+  reupload:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download file
+        run: curl -o fileGB.7z https://files.waifu.cat/040369cf.7z
+
+      - name: Upload to Bashupload
+        run: |
+          curl https://bashupload.com/ -T fileGB.7z
